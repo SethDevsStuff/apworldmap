@@ -160,36 +160,44 @@ var travOn = 0;
 var travMapGroup = group(171, 0, 0.75, 0.75);
 var travMap = comp(0, 3, {width:1366, height:657}, {type:'image', source:mapSrc, group:travMapGroup, outline:{draw:true, color:'gray', width:1}});
 
-
 travMapGroup.addAnimation('return', [{path:'scaleX', value:0.75}, {path:'scaleY', value:0.75}, {path:'x', value:171}, {path:'y', value:0}], 5000, 'ease-out', function () {
     ibnBattutaCities.show(); zhengHeCities.show(); marcoPoloCities.show(); ibnBattutaSelect.show(); zhengHeSelect.show(); marcoPoloSelect.show(); nextPart.show();
 })
 travMapGroup.addAnimation('baghdad', [{path:'scaleX', value:2}, {path:'scaleY', value:2}, {path:'x', value:-350}, {path:'y', value:-150}], 5000, 'ease-out', function () {
     travNext.show();
+    ibnBaghdad.show();
 });
 travMapGroup.addAnimation('iraq', [{path:'x', value:-400}, {path:'y', value:-100}], 2000, 'ease-out', function () {
     travNext.show();
+    ibnIraq.show();
 });
 travMapGroup.addAnimation('azerbaijan', [{path:'x', value:-375}, {path:'y', value:0}], 2000, 'ease-out', function () {
     travNext.show();
+    ibnAzerbaijan.show();
 });
 travMapGroup.addAnimation('malindi', [{path:'scaleX', value:2}, {path:'scaleY', value:2}, {path:'x', value:-350}, {path:'y', value:-600}], 5000, 'ease-out', function () {
     travNext.show();
+    zhengMalindi.show();
 });
 travMapGroup.addAnimation('mogadishu', [{path:'x', value:-400}, {path:'y', value:-550}], 2000, 'ease-out', function () {
     travNext.show();
+    zhengMogadishu.show();
 });
 travMapGroup.addAnimation('jeddah', [{path:'x', value:-375}, {path:'y', value:-300}], 2000, 'ease-out', function () {
     travNext.show();
+    zhengJeddah.show();
 });
 travMapGroup.addAnimation('cherchen', [{path:'scaleX', value:2}, {path:'scaleY', value:2}, {path:'x', value:-925}, {path:'y', value:-100}], 5000, 'ease-out', function () {
     travNext.show();
+    marcoChercen.show();
 });
 travMapGroup.addAnimation('beijing', [{path:'x', value:-1250}, {path:'y', value:-150}], 2000, 'ease-out', function () {
     travNext.show();
+    marcoBeijing.show();
 });
 travMapGroup.addAnimation('hangzhou', [{path:'x', value:-1300}, {path:'y', value:-200}], 2000, 'ease-out', function () {
     travNext.show();
+    marcoHangzhou.show();
 });
 
 
@@ -224,90 +232,29 @@ marcoPoloSelect.onclick = function () {
     travMapGroup.animations.cherchen.run();
     travOn = 7;
 }
-
-
-var travNext = comp(1000, 505, {width:300, height:75}, {type:'image', source:nextSrc, cursor:'pointer'});
-travNext.hide();
-travNext.onclick = function () {
-    switch(travOn){
-        case 1://Baghdad to Iraq
-            travNext.hide();
-            travMapGroup.animations.iraq.run();
-            travOn = 2;
-        break;
-
-        case 2://Iraq to Azerbaijan
-            travNext.hide();
-            travMapGroup.animations.azerbaijan.run();
-            travOn = 3;
-        break;
-
-        case 3://Azerbaijan to 'return'
-            travNext.hide();
-            travMapGroup.animations.return.run();
-            travOn = 0;
-        break;
-
-        case 4://Malindini to Mogadishu
-            travNext.hide();
-            travMapGroup.animations.mogadishu.run();
-            travOn = 5;
-        break;
-
-        case 5://Mogadishu to Jeddah
-            travNext.hide();
-            travMapGroup.animations.jeddah.run();
-            travOn = 6;
-        break;
-
-        case 6://Jeddah to 'return'
-            travNext.hide();
-            travMapGroup.animations.return.run();
-            travOn = 0;
-        break;
-
-        case 7://Chercen to Beijing
-            travNext.hide();
-            travMapGroup.animations.beijing.run();
-            travOn = 8;
-        break;
-
-        case 8://Beijing to Hangzhou
-            travNext.hide();
-            travMapGroup.animations.hangzhou.run();
-            travOn = 9;
-        break;
-
-        case 9://Hangzhou to 'return'
-            travNext.hide();
-            travMapGroup.animations.return.run();
-            travOn = 0;
-        break;
-    }
-}
 //////////////////  Silk Roads  /////////////////////
 
 /* Hangzhou */
 var hangzhouSrc = image('hangzhou.png');
-var hangzhou = comp(200, -25, {width:960, height:720}, {type:'image', source:hangzhouSrc});
+var hangzhou = comp(200, -33, {width:960, height:720}, {type:'image', source:hangzhouSrc});
 hangzhou.hide();
 /* Baghdad */
 var baghdadSrc = image('baghdad.png');
-var baghdad = comp(200, -25, {width:960, height:720}, {type:'image', source:baghdadSrc});
+var baghdad = comp(200, -35, {width:960, height:720}, {type:'image', source:baghdadSrc});
 baghdad.hide();
 /* Constantinople */
 var constantinopleSrc = image('constantinople.png');
-var constantinople = comp(200, -25, {width:960, height:720}, {type:'image', source:constantinopleSrc});
+var constantinople = comp(200, -30, {width:960, height:720}, {type:'image', source:constantinopleSrc});
 constantinople.hide();
 //////////////  Trans-Saharan Routes  ////////////////
 
 /* Timbuktu */
 var timbuktuSrc = image('timbuktu.png');
-var timbuktu = comp(200, -25, {width:960, height:720}, {type:'image', source:timbuktuSrc});
+var timbuktu = comp(200, -30, {width:960, height:720}, {type:'image', source:timbuktuSrc});
 timbuktu.hide();
 /* Jeddah */
 var jeddahSrc = image('jeddah.png');
-var jeddah = comp(200, -25, {width:960, height:720}, {type:'image', source:jeddahSrc});
+var jeddah = comp(200, -30, {width:960, height:720}, {type:'image', source:jeddahSrc});
 jeddah.hide();
 /* Tripoli */
 var tripoliSrc = image('tripoli.png');
@@ -317,15 +264,15 @@ tripoli.hide();
 
 /* Great Zimbabwe */
 var zimbSrc = image('zimb.png');
-var zimb = comp(200, -25, {width:960, height:720}, {type:'image', source:zimbSrc});
+var zimb = comp(200, -33, {width:960, height:720}, {type:'image', source:zimbSrc});
 zimb.hide();
 /* Mombasa */
 var mombasaSrc = image('mombasa.png');
-var mombasa = comp(200, -25, {width:960, height:720}, {type:'image', source:mombasaSrc});
+var mombasa = comp(200, -30, {width:960, height:720}, {type:'image', source:mombasaSrc});
 mombasa.hide();
 /* Malacca */
 var malaccaSrc = image('malacca.png');
-var malacca = comp(200, -25, {width:960, height:720}, {type:'image', source:malaccaSrc});
+var malacca = comp(200, -30, {width:960, height:720}, {type:'image', source:malaccaSrc});
 malacca.hide();
 ///////////////////////////////////////////////////////
 ///////////////////  Traded Goods  ////////////////////
@@ -333,37 +280,128 @@ malacca.hide();
 
 //////////////////////  Gold   ////////////////////////
 var goldInfoSrc = image('goldInfo.png');
-var goldInfo = comp(200, -25, {width:960, height:720}, {type:'image', source:goldInfoSrc});
+var goldInfo = comp(200, -30, {width:960, height:720}, {type:'image', source:goldInfoSrc});
 goldInfo.hide();
 //////////////////////  Ivory  ////////////////////////
 var ivoryInfoSrc = image('ivoryInfo.png');
-var ivoryInfo = comp(200, -25, {width:960, height:720}, {type:'image', source:ivoryInfoSrc});
+var ivoryInfo = comp(300, 0, {width:800, height:600}, {type:'image', source:ivoryInfoSrc});
 ivoryInfo.hide();
 /////////////////////  Porcelain  /////////////////////
 var porcelainInfoSrc = image('porcelainInfo.png');
-var porcelainInfo = comp(200, -25, {width:960, height:720}, {type:'image', source:porcelainInfoSrc});
+var porcelainInfo = comp(200, -30, {width:960, height:720}, {type:'image', source:porcelainInfoSrc});
 porcelainInfo.hide();
 /////////////////////  Astrolabe  /////////////////////
 var astrolabeInfoSrc = image('astrolabeInfo.png');
-var astrolabeInfo = comp(200, -25, {width:960, height:720}, {type:'image', source:astrolabeInfoSrc});
+var astrolabeInfo = comp(200, -30, {width:960, height:720}, {type:'image', source:astrolabeInfoSrc});
 astrolabeInfo.hide();
 ///////////////////////  Books  ///////////////////////
 var booksInfoSrc = image('booksInfo.png');
-var booksInfo = comp(200, -25, {width:960, height:720}, {type:'image', source:booksInfoSrc});
+var booksInfo = comp(300, 0, {width:800, height:600}, {type:'image', source:booksInfoSrc});
 booksInfo.hide();
 
 
 ////////////////////  Ibn Battuta  ////////////////////
 
 //Baghdad
-var ibnBaghdad;
+var ibnBaghdad = comp(200, -30, {width:960, height:720}, {type:'image', source:image('ibnBaghdad.png')});
+ibnBaghdad.hide();
 //Iraq
-
+var ibnIraq = comp(200, -30, {width:960, height:720}, {type:'image', source:image('ibnIraq.png')});
+ibnIraq.hide();
 //Azerbaijan
-
+var ibnAzerbaijan = comp(200, -30, {width:960, height:720}, {type:'image', source:image('ibnAzerbaijan.png')});
+ibnAzerbaijan.hide();
 /////////////////////  Zheng He  //////////////////////
-
+//Mogadishu
+var zhengMogadishu = comp(200, -30, {width:960, height:720}, {type:'image', source:image('zhengMogadishu.png')});
+zhengMogadishu.hide();
+//Malindi
+var zhengMalindi = comp(200, -30, {width:960, height:720}, {type:'image', source:image('zhengMalindi.png')});
+zhengMalindi.hide();
+//Jeddah
+var zhengJeddah = comp(200, -30, {width:960, height:720}, {type:'image', source:image('zhengJeddah.png')});
+zhengJeddah.hide();
 ///////////////////  Marco Polo  //////////////////////
+//Chercen
+var marcoChercen = comp(200, -30, {width:960, height:720}, {type:'image', source:image('marcoChercen.png')});
+marcoChercen.hide();
+//Beijing
+var marcoBeijing = comp(200, -30, {width:960, height:720}, {type:'image', source:image('marcoBeijing.png')});
+marcoBeijing.hide();
+//Hangzhou
+var marcoHangzhou = comp(200, -30, {width:960, height:720}, {type:'image', source:image('marcoHangzhou.png')});
+marcoHangzhou.hide();
+///////////////////////////////////////////////////////
+
+var travNext = comp(1000, 505, {width:300, height:75}, {type:'image', source:nextSrc, cursor:'pointer'});
+travNext.hide();
+travNext.onclick = function () {
+    switch(travOn){
+        case 1://Baghdad to Iraq
+            ibnBaghdad.hide();
+            travNext.hide();
+            travMapGroup.animations.iraq.run();
+            travOn = 2;
+        break;
+
+        case 2://Iraq to Azerbaijan
+            ibnIraq.hide();
+            travNext.hide();
+            travMapGroup.animations.azerbaijan.run();
+            travOn = 3;
+        break;
+
+        case 3://Azerbaijan to 'return'
+            ibnAzerbaijan.hide();
+            travNext.hide();
+            travMapGroup.animations.return.run();
+            travOn = 0;
+        break;
+
+        case 4://Malindini to Mogadishu
+            zhengMalindi.hide();
+            travNext.hide();
+            travMapGroup.animations.mogadishu.run();
+            travOn = 5;
+        break;
+
+        case 5://Mogadishu to Jeddah
+            zhengMogadishu.hide();
+            travNext.hide();
+            travMapGroup.animations.jeddah.run();
+            travOn = 6;
+        break;
+
+        case 6://Jeddah to 'return'
+            zhengJeddah.hide();
+            travNext.hide();
+            travMapGroup.animations.return.run();
+            travOn = 0;
+        break;
+
+        case 7://Chercen to Beijing
+            marcoChercen.hide();
+            travNext.hide();
+            travMapGroup.animations.beijing.run();
+            travOn = 8;
+        break;
+
+        case 8://Beijing to Hangzhou
+            marcoBeijing.hide();
+            travNext.hide();
+            travMapGroup.animations.hangzhou.run();
+            travOn = 9;
+        break;
+
+        case 9://Hangzhou to 'return'
+            marcoHangzhou.hide();
+            travNext.hide();
+            travMapGroup.animations.return.run();
+            travOn = 0;
+        break;
+    }
+}
+
 var next = comp(1000, 505, {width:300, height:75}, {type:'image', source:nextSrc, cursor:'pointer'});
 next.hide();
 
@@ -507,4 +545,4 @@ back.onclick = function () {
 
 announcer.addAnimation('disappear', [{path:'opacity', value:0}], 2000, 'ease-out');
 announcer.addAnimation('appear', [{path:'opacity', value:1}], 2000, 'ease-out', announcer.animations.disappear.run);
-goToPart(1);
+goToPart(2);
